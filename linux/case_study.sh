@@ -1,5 +1,5 @@
-read -p "Enter yes or no: " BOB
-case "$BOB" in
+read -p "Enter yes or no: " ANSWER
+case "$ANSWER" in
 [yY] | [yY][eE][sS])
 echo "You answered yes."
 ;;
