@@ -1,8 +1,8 @@
 # Docker Basics
 
 ## Image vs Container
-- Image = pre-packaged template (the lunch box)
-- Container = running instance of that image (the opened lunch box)
+- Image = pre-packaged template 
+- Container = running instance of that image 
 
 ## run -it vs run -d vs exec -it
 - `docker run -it` → creates new container + enters it → exits when you leave
@@ -11,7 +11,7 @@
 
 ## Getting Container IP
 ```bash
-# Old way (often empty)
+# Old way (often empty) (this made me break my head a bit)
 docker inspect --format '{{ .NetworkSettings.IPAddress }}' <name>
 
 # Correct way
