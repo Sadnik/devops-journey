@@ -7,93 +7,122 @@
 
   <style>
     :root {
-      --bg1: #0f172a;
-      --bg2: #1e293b;
+      --bg1: #070b14;
+      --bg2: #0f172a;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
       --accent: #38bdf8;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
+      --accent2: #a78bfa;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
     }
 
     body {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background: radial-gradient(circle at top, var(--bg2), var(--bg1));
       color: var(--text);
-      padding: 20px;
+      padding: 24px;
     }
 
     .card {
-      max-width: 700px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 40px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      max-width: 720px;
+      padding: 48px 42px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle glow effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%);
+      z-index: 0;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .badge {
-      display: inline-block;
-      margin-bottom: 15px;
-      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.15);
+      font-size: 0.85rem;
       color: var(--accent);
-      font-size: 0.9rem;
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
+      font-weight: 700;
       margin-bottom: 10px;
-      background: linear-gradient(90deg, var(--accent), #a78bfa);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
 
     .hello {
-      font-size: 1.4rem;
-      margin: 15px 0;
+      font-size: 1.25rem;
       color: #ffffff;
+      margin-bottom: 14px;
+      opacity: 0.95;
     }
 
     p {
       color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 26px;
     }
 
     .buttons {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
       justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     a.button {
-      text-decoration: none;
       padding: 12px 18px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #0f172a;
+      border-radius: 12px;
+      text-decoration: none;
       font-weight: 600;
-      transition: 0.2s ease;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
     }
 
-    a.button:hover {
+    a.primary {
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      color: #0b1220;
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+    }
+
+    a.primary:hover {
       transform: translateY(-2px);
-      background: #7dd3fc;
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.35);
     }
 
     a.secondary {
@@ -102,23 +131,39 @@
       color: var(--text);
     }
 
+    a.secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-2px);
+    }
+
     footer {
-      margin-top: 25px;
+      margin-top: 28px;
       font-size: 0.85rem;
       color: var(--muted);
     }
 
     code {
       background: rgba(255,255,255,0.08);
-      padding: 3px 6px;
+      padding: 3px 7px;
       border-radius: 6px;
+    }
+
+    /* mobile tweak */
+    @media (max-width: 480px) {
+      .card {
+        padding: 36px 22px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="card">
-    <div class="badge">GitHub Pages + Actions</div>
+    <div class="badge">⚡ GitHub Pages + Actions</div>
 
     <h1>My Project 🚀</h1>
 
@@ -130,8 +175,15 @@
     </p>
 
     <div class="buttons">
-      <a class="button" href="https://github.com/Sadnik/devops-journey" target="_blank">View Repo</a>
-      <a class="button secondary" href="#">Live Demo</a>
+      <a class="button primary"
+         href="https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/Github-Pages-project"
+         target="_blank">
+        View Repo
+      </a>
+
+      <a class="button secondary" href="#">
+        Learn More
+      </a>
     </div>
 
     <footer>
