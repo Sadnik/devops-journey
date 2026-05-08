@@ -47,7 +47,6 @@
       overflow: hidden;
     }
 
-    /* subtle glow effect */
     .card::before {
       content: "";
       position: absolute;
@@ -63,8 +62,6 @@
 
     .badge {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 0.85rem;
@@ -81,59 +78,35 @@
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: -0.02em;
     }
 
     .hello {
       font-size: 1.25rem;
-      color: #ffffff;
       margin-bottom: 14px;
-      opacity: 0.95;
+      color: #fff;
     }
 
     p {
       color: var(--muted);
       line-height: 1.7;
-      font-size: 1rem;
       margin-bottom: 26px;
     }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
     a.button {
-      padding: 12px 18px;
+      display: inline-block;
+      padding: 12px 20px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.25s ease;
-      border: 1px solid transparent;
-    }
-
-    a.primary {
       background: linear-gradient(135deg, var(--accent), #60a5fa);
       color: #0b1220;
       box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+      transition: all 0.25s ease;
     }
 
-    a.primary:hover {
+    a.button:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(56, 189, 248, 0.35);
-    }
-
-    a.secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--text);
-    }
-
-    a.secondary:hover {
-      border-color: rgba(255,255,255,0.4);
-      transform: translateY(-2px);
     }
 
     footer {
@@ -146,17 +119,6 @@
       background: rgba(255,255,255,0.08);
       padding: 3px 7px;
       border-radius: 6px;
-    }
-
-    /* mobile tweak */
-    @media (max-width: 480px) {
-      .card {
-        padding: 36px 22px;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
     }
   </style>
 </head>
@@ -174,17 +136,11 @@
       powered by GitHub Actions and deployed automatically.
     </p>
 
-    <div class="buttons">
-      <a class="button primary"
-         href="https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/Github-Pages-project"
-         target="_blank">
-        View Repo
-      </a>
-
-      <a class="button secondary" href="#">
-        Learn More
-      </a>
-    </div>
+    <a class="button"
+       href="https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/Github-Pages-project"
+       target="_blank">
+      View Repo
+    </a>
 
     <footer>
       Built with love using GitHub Pages • Deploy via <code>GitHub Actions</code>
