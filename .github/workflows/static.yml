@@ -37,7 +37,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'https://sadnik.github.io/devops-journey/small-devops-projects/Github%20Pages%20Project/#'
+          path: 'devops-journey/small-devops-projects/Github Pages Project'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
