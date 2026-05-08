@@ -3,148 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Project</title>
+  <title>CI/CD DevOps Project</title>
 
   <style>
     :root {
-      --bg1: #070b14;
-      --bg2: #0f172a;
+      --bg: #050816;
       --card: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.10);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #9d00f2;
-      --accent2: #a78bfa;
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #7c3aed;
+      --secondary: #06b6d4;
+      --success: #22c55e;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family: Inter, system-ui, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+      background:
+        radial-gradient(circle at top left, rgba(124,58,237,0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(6,182,212,0.2), transparent 35%),
+        var(--bg);
       color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 24px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 720px;
-      padding: 48px 42px;
-      border-radius: 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      position: relative;
       overflow: hidden;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%);
-      z-index: 0;
+    .container {
+      width: 100%;
+      max-width: 900px;
+      position: relative;
     }
 
-    .card > * {
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      filter: blur(120px);
+      opacity: 0.25;
+      z-index: 0;
+      animation: float 6s ease-in-out infinite alternate;
+    }
+
+    .glow.one {
+      top: -100px;
+      left: -80px;
+    }
+
+    .glow.two {
+      bottom: -100px;
+      right: -80px;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(30px);
+      }
+    }
+
+    .card {
       position: relative;
       z-index: 1;
+      backdrop-filter: blur(20px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 60px 50px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+      overflow: hidden;
     }
 
-    .badge {
+    .top-badge {
       display: inline-flex;
-      padding: 6px 14px;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
       border-radius: 999px;
-      font-size: 0.85rem;
-      color: var(--accent);
-      background: rgba(161, 1, 229, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      margin-bottom: 18px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: #c4b5fd;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 2.7rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffffff, #c4b5fd, #67e8f9);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hello {
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-      color: #fff;
-    }
-
-    p {
+    .subtitle {
       color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 26px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 40px;
     }
 
-    a.button {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 12px;
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,58,237,0.5);
+      background: rgba(124,58,237,0.08);
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 14px;
       text-decoration: none;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      color: #0b1220;
-      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
-      transition: all 0.25s ease;
+      transition: 0.25s ease;
     }
 
-    a.button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.35);
+    .primary-btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 12px 30px rgba(124,58,237,0.35);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(124,58,237,0.45);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 28px;
-      font-size: 0.85rem;
+      margin-top: 45px;
       color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status {
+      color: var(--success);
+      font-weight: 600;
     }
 
     code {
       background: rgba(255,255,255,0.08);
-      padding: 3px 7px;
-      border-radius: 6px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: #c4b5fd;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 40px 28px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <div class="badge">🌟 GitHub Pages + Actions</div>
 
-    <h1>My Project 🚀</h1>
+  <div class="container">
 
-    <div class="hello">Hello GitHub Actions! 🌟</div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
 
-    <p>
-      Welcome to my GitHub Pages site! This is a clean, modern landing page
-      powered by GitHub Actions and deployed automatically.
-    </p>
+    <div class="card">
 
-    <a class="button"
-       href="https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/Github-Pages-project"
-       target="_blank">
-      View Repo
-    </a>
+      <div class="top-badge">
+        ⚡ Automated CI/CD Pipeline
+      </div>
 
-    <footer>
-      Built with love using GitHub Pages • Deploy via <code>GitHub Actions</code>
-    </footer>
+      <h1>
+        DevOps Deployment Journey 🚀
+      </h1>
+
+      <p class="subtitle">
+        A modern CI/CD project powered by GitHub Actions and GitHub Pages.
+        Every push triggers automated workflows, testing, and deployment —
+        demonstrating real-world DevOps automation in action.
+      </p>
+
+      <div class="pipeline">
+
+        <div class="step">
+          <div class="step-icon">💻</div>
+          <h3>Code</h3>
+          <p>Push updates directly to GitHub repository.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">⚙️</div>
+          <h3>Build</h3>
+          <p>GitHub Actions automatically starts workflows.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">🧪</div>
+          <h3>Test</h3>
+          <p>Validate deployment pipeline and automation.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">🌍</div>
+          <h3>Deploy</h3>
+          <p>Website deploys instantly to GitHub Pages.</p>
+        </div>
+
+      </div>
+
+      <div class="buttons">
+
+        <a class="btn primary-btn"
+          href="https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/Github-Pages-project"
+          target="_blank">
+          🔗 View Repository
+        </a>
+
+        <a class="btn secondary-btn"
+          href="https://github.com/features/actions"
+          target="_blank">
+          ⚡ GitHub Actions
+        </a>
+
+      </div>
+
+      <footer>
+        <div>
+          Built using <code>HTML + CSS</code> • CI/CD with <code>GitHub Actions</code>
+        </div>
+
+        <div class="status">
+          ● Pipeline Active
+        </div>
+      </footer>
+
+    </div>
   </div>
+
 </body>
 </html>
