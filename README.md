@@ -1,72 +1,87 @@
 <div align="center">
 
-# 👨‍💻 Nícolas B. — DevOps Journey
+# Nícolas Barcelos — DevOps Journey
 
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/Sadnik/devops-journey)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://github.com/Sadnik/devops-journey)
 [![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)](https://github.com/Sadnik/devops-journey)
 [![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)](https://github.com/Sadnik/devops-journey)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/Sadnik/devops-journey)
 
-**Former CELTA-certified English teacher → DevOps/SRE Engineer in progress**
+**Former British Council Examiner → DevOps/SRE Engineer in progress**
 
-*Turns out explaining Kubernetes to yourself isn't that different from explaining grammar to 100 students. Harder, maybe.*
+*Turns out explaining Kubernetes to yourself isn't that different from explaining grammar to a hundred students. Harder, maybe.*
 
 </div>
 
 ---
 
-## 🧠 Who I Am
+## Who I Am
 
-Nícolas — 3+ years as a CELTA-certified English teacher and British Council examiner ("Exceeds Standard" QA rating) at international institutions. Now applying that same brain for breaking down complex systems to infrastructure, automation, and cloud engineering.
+Nícolas — formerly a CELTA-certified English teacher and British Council international examiner. Now applying that same ability to break down complex systems to infrastructure, automation, and cloud engineering.
 
-The transition started in january. This repo is the paper trail.
+Full-time career transition started January 2026. This repo is the paper trail.
 
-🇧🇷 Native Portuguese | 🇬🇧 Fluent English (C2)
-
----
-
-## 🚀 Projects
-
-> **AWS Project** — Dockerized app deployed to EC2 via ECR, SSH hardened to port 4444, infrastructure automated with Ansible.
-> [→ See the project](https://github.com/Sadnik/devops-journey/tree/master/aws-project)
+🇧🇷 Native Portuguese · 🇬🇧 C2 English (British Council certified)
 
 ---
 
-## 📁 What's in This Repo
+## Projects
+
+### AWS Deployment Project
+Dockerized app built from a custom Dockerfile, image pushed to ECR via AWS CLI, deployed to EC2 with SSH hardened to port 4444. Part 2 added Ansible automation — playbook handles Docker installation, SSH hardening, and server configuration from scratch.
+
+[→ View project](https://github.com/Sadnik/devops-journey/tree/master/aws-project)
+
+---
+
+### CI/CD Pipeline — GitHub Actions
+First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitHub Pages on every push to main. Triggers only when `index.html` changes.
+
+[→ Live site](https://sadnik.github.io/devops-journey) · [→ View project](https://github.com/Sadnik/devops-journey)
+
+---
+
+## What's in This Repo
 
 | Folder | What it covers |
-|--------|---------------|
-| [linux/](https://github.com/Sadnik/devops-journey/tree/master/linux) | Bash scripting, fundamentals, daily exercises |
-| [aws-project/](https://github.com/Sadnik/devops-journey/tree/master/aws-project) | Docker + EC2 + Ansible hands-on project |
-| [docker/](https://github.com/Sadnik/devops-journey/tree/master/docker) | Docker basics, commands, networking and multi-container lab |
+|--------|----------------|
+| [linux/](linux/) | Bash scripting, fundamentals, 1+ month of daily exercises |
+| [docker/](docker/) | Basics, networking, multi-container labs, Compose assignments |
+| [aws-project/](aws-project/) | Docker + ECR + EC2 + Ansible end-to-end project |
 
 ---
 
-## 🗺️ Roadmap
-```
-## 🗺️ Learning Roadmap
+## Roadmap
 
 ```text
-✅ Linux Fundamentals (LFS101)
-✅ Docker & Containerization
+✅ Linux Fundamentals
+✅ Git & GitHub
+✅ Docker & Docker Compose
 ✅ AWS EC2 + ECR Deployment
 ✅ Ansible Automation
-✅ Basic CI/CD Pipelines (GitHub Actions)
-🔄 AWS Cloud Practitioner Certification
-⏳ Kubernetes (CKA Path)
-⏳ Terraform / Infrastructure as Code
-⏳ Advanced CI/CD & Deployment Workflows
-⏳ Monitoring & Production-Grade Deployments
+✅ CI/CD with GitHub Actions
+🔄 AWS Cloud Practitioner (CLF-C02)
+⏳ Kubernetes — Absolute Beginners + CKA
+⏳ AWS Solutions Architect Associate (SAA-C03)
+⏳ Terraform & Infrastructure as Code
+⏳ Production Monitoring Stack (Prometheus · Grafana · Alertmanager)
+```
 
 ---
 
-## 🏅 Certifications
+## Certifications
 
-**LFS101 — Introduction to Linux** | Linux Foundation | Feb 2026
-[→ Verify on Credly](https://www.credly.com/badges/4718735e-909c-4ccb-8b2d-7c984fff2acf)
+| Cert | Issuer | Date |
+|------|--------|------|
+| Introduction to Linux (LFS101) | Linux Foundation | Feb 2026 |
+| Linux Mastery | Udemy | Mar 2026 |
+| Git Complete | Udemy | Apr 2026 |
+| Docker Mastery | Udemy | May 2026 |
+
+[→ LFS101 on Credly](https://www.credly.com/badges/4718735e-909c-4ccb-8b2d-7c984fff2acf)
 
 ---
-
 
 <div align="center">
 <sub>Built in public. Broken in public. Fixed in public.</sub>
