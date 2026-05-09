@@ -19,7 +19,7 @@
 
 Nícolas — 3+ years as a CELTA-certified English teacher and British Council examiner ("Exceeds Standard" QA rating) at international institutions. Now applying that same brain for breaking down complex systems to infrastructure, automation, and cloud engineering.
 
-The transition started on january, 2026. This repo is the paper trail.
+The transition started in january. This repo is the paper trail.
 
 🇧🇷 Native Portuguese | 🇬🇧 Fluent English (C2)
 
@@ -28,7 +28,7 @@ The transition started on january, 2026. This repo is the paper trail.
 ## 🚀 Projects
 
 > **AWS Project** — Dockerized app deployed to EC2 via ECR, SSH hardened to port 4444, infrastructure automated with Ansible.
-> [→ See the project](./aws-project/)
+> [→ See the project](https://github.com/Sadnik/devops-journey/tree/master/aws-project)
 
 ---
 
@@ -63,13 +63,7 @@ The transition started on january, 2026. This repo is the paper trail.
 
 ---
 
-## 📊 GitHub Stats
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=Sadnik&show_icons=true&theme=dark&hide_border=true)
-
----
 
 <div align="center">
 <sub>Built in public. Broken in public. Fixed in public.</sub>
 </div>
-
