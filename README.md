@@ -44,15 +44,19 @@ The transition started in january. This repo is the paper trail.
 
 ## 🗺️ Roadmap
 ```
-✅ Linux fundamentals (LFS101)
-✅ Docker & containerization
-✅ AWS EC2 + ECR deployment
-✅ Ansible automation
-🔄 Kubernetes (CKA path)
-⏳ AWS Solutions Architect Associate
-⏳ Terraform / IaC
-⏳ CI/CD pipelines
-```
+## 🗺️ Learning Roadmap
+
+```text
+✅ Linux Fundamentals (LFS101)
+✅ Docker & Containerization
+✅ AWS EC2 + ECR Deployment
+✅ Ansible Automation
+✅ Basic CI/CD Pipelines (GitHub Actions)
+🔄 AWS Cloud Practitioner Certification
+⏳ Kubernetes (CKA Path)
+⏳ Terraform / Infrastructure as Code
+⏳ Advanced CI/CD & Deployment Workflows
+⏳ Monitoring & Production-Grade Deployments
 
 ---
 
