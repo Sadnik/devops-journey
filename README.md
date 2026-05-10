@@ -42,6 +42,13 @@ First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitH
 
 ---
 
+### Dockerized Node.js Service — Automated Deployment
+Node.js REST API with Basic Auth, containerized with Docker, automatically built and deployed to AWS EC2 via GitHub Actions on every push. Secrets managed via GitHub Secrets — never in the code.
+
+[→ View project](https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/dockerized-node-service-project)
+
+---
+
 ## What's in This Repo
 
 | Folder | What it covers |
@@ -49,6 +56,7 @@ First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitH
 | [linux/](linux/) | Bash scripting, fundamentals, 1+ month of daily exercises |
 | [docker/](docker/) | Basics, networking, multi-container labs, Compose assignments |
 | [aws-project/](aws-project/) | Docker + ECR + EC2 + Ansible end-to-end project |
+| [small-devops-projects/](small-devops-projects/) | Standalone projects|
 
 ---
 
