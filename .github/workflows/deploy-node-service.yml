@@ -42,8 +42,4 @@ jobs:
             docker load < /home/ubuntu/node-service.tar.gz
             docker stop node-service || true
             docker rm node-service || true
-            docker run -d --name node-service -p 3000:3000 \
-              -e SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }} \
-              -e APP_USERNAME=${{ secrets.APP_USERNAME }} \
-              -e APP_PASSWORD=${{ secrets.APP_PASSWORD }} \
-              node-service
+            docker run -d --name node-service -p 3000:3000 -e SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }} -e APP_USERNAME=${{ secrets.APP_USERNAME }} -e APP_PASSWORD=${{ secrets.APP_PASSWORD }} node-service
