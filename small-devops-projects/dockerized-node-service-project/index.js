@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 app.get('/secret',
   basicAuth({
-    users: { [process.env.USERNAME]: process.env.PASSWORD },
+    users: { [process.env.APP_USERNAME]: process.env.APP_PASSWORD },
     challenge: true
   }),
   (req, res) => {

@@ -44,6 +44,6 @@ jobs:
             docker rm node-service || true
             docker run -d --name node-service -p 3000:3000 \
               -e SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }} \
-              -e USERNAME=${{ secrets.USERNAME }} \
-              -e PASSWORD=${{ secrets.PASSWORD }} \
+              -e APP_USERNAME=${{ secrets.APP_USERNAME }} \
+              -e APP_PASSWORD=${{ secrets.APP_PASSWORD }} \
               node-service
