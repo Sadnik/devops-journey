@@ -1,0 +1,49 @@
+name: Deploy Node Service
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - small-devops-projects/dockerized-node-service-project/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          cd small-devops-projects/dockerized-node-service-project
+          docker build -t node-service .
+
+      - name: Save image as tar
+        run: docker save node-service | gzip > node-service.tar.gz
+
+      - name: Copy image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: node-service.tar.gz
+          target: /home/ubuntu/
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker load < /home/ubuntu/node-service.tar.gz
+            docker stop node-service || true
+            docker rm node-service || true
+            docker run -d --name node-service -p 3000:3000 \
+              -e SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }} \
+              -e USERNAME=${{ secrets.USERNAME }} \
+              -e PASSWORD=${{ secrets.PASSWORD }} \
+              node-service
