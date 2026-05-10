@@ -38,8 +38,13 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
+          envs: SECRET_MESSAGE,APP_USERNAME,APP_PASSWORD
           script: |
             docker load < /home/ubuntu/node-service.tar.gz
             docker stop node-service || true
             docker rm node-service || true
-            docker run -d --name node-service -p 3000:3000 -e SECRET_MESSAGE=${{ secrets.SECRET_MESSAGE }} -e APP_USERNAME=${{ secrets.APP_USERNAME }} -e APP_PASSWORD=${{ secrets.APP_PASSWORD }} node-service
+            docker run -d --name node-service -p 3000:3000 -e SECRET_MESSAGE=$SECRET_MESSAGE -e APP_USERNAME=$APP_USERNAME -e APP_PASSWORD=$APP_PASSWORD node-service
+        env:
+          SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
