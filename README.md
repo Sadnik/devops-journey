@@ -31,12 +31,16 @@ Full-time career transition started January 2026. This repo is the paper trail.
 ### AWS Deployment Project
 Dockerized app built from a custom Dockerfile, image pushed to ECR via AWS CLI, deployed to EC2 with SSH hardened to port 4444. Part 2 added Ansible automation — playbook handles Docker installation, SSH hardening, and server configuration from scratch.
 
+`Docker` `AWS ECR` `AWS EC2` `Ansible` `AWS CLI` `SSH`
+
 [→ View project](https://github.com/Sadnik/devops-journey/tree/master/aws-project)
 
 ---
 
 ### CI/CD Pipeline — GitHub Actions
-First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitHub Pages on every push to main. Triggers only when `index.html` changes.
+First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitHub Pages on every push to master. Triggers only when `index.html` changes.
+
+`GitHub Actions` `CI/CD` `GitHub Pages` `HTML`
 
 [→ Live site](https://sadnik.github.io/devops-journey) · [→ View project](https://github.com/Sadnik/devops-journey)
 
@@ -44,6 +48,8 @@ First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitH
 
 ### Dockerized Node.js Service — Automated Deployment
 Node.js REST API with Basic Auth, containerized with Docker, automatically built and deployed to AWS EC2 via GitHub Actions on every push. Secrets managed via GitHub Secrets — never in the code.
+
+`Docker` `Node.js` `Express` `AWS EC2` `GitHub Actions` `CI/CD` `Secrets Management`
 
 [→ View project](https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/dockerized-node-service-project)
 
