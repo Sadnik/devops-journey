@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - small-devops-projects/dockerized-node-service-project/**
+      - small-devops-projects/nodejs-docker-cicd-backup/**
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd small-devops-projects/dockerized-node-service-project
+          cd small-devops-projects/nodejs-docker-cicd-backup
           docker build -t node-service .
 
       - name: Save image as tar
