@@ -46,10 +46,10 @@ First CI/CD pipeline: GitHub Actions workflow that automatically deploys to GitH
 
 ---
 
-### Dockerized Node.js Service — Automated Deployment
-Node.js REST API with Basic Auth, containerized with Docker, automatically built and deployed to AWS EC2 via GitHub Actions on every push. Secrets managed via GitHub Secrets — never in the code.
+### Dockerized Node.js Service — Automated Deployment & Scheduled Backups
+Node.js REST API with Basic Auth, containerized with Docker, automatically built and deployed to AWS EC2 via GitHub Actions on every push. Includes a scheduled backup workflow that dumps MongoDB every 12 hours and uploads to AWS S3 via IAM role — no credentials stored anywhere.
 
-`Docker` `Node.js` `Express` `AWS EC2` `GitHub Actions` `CI/CD` `Secrets Management`
+`Docker` `Node.js` `Express` `MongoDB` `AWS EC2` `AWS S3` `IAM Roles` `GitHub Actions` `CI/CD` `Secrets Management` `Cron`
 
 [→ View project](https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/dockerized-node-service-project)
 

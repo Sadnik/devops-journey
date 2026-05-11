@@ -1,6 +1,6 @@
 # Dockerized Node.js Service
 
-A simple Node.js REST API containerized with Docker and automatically deployed to AWS EC2 via GitHub Actions.
+A Node.js REST API containerized with Docker, automatically deployed to AWS EC2 via GitHub Actions, with scheduled MongoDB backups to AWS S3.
 
 ## What it does
 
@@ -11,18 +11,30 @@ A simple Node.js REST API containerized with Docker and automatically deployed t
 
 - Node.js + Express
 - Docker
+- MongoDB
 - AWS EC2
-- GitHub Actions (CI/CD)
+- AWS S3
+- GitHub Actions (CI/CD + Scheduled Backups)
+- IAM Roles
 
-## How it works
+## Workflows
 
-Every push to `main` that changes this project triggers the GitHub Actions workflow:
+### Deploy workflow
+Every push to `master` that changes this project triggers the deployment:
 
 1. Builds the Docker image on the runner
 2. Packages and transfers it to EC2 via SCP
 3. SSHs into the server, stops the old container, runs the new one
 
-Credentials are stored in GitHub Secrets — never in the code.
+### Backup workflow
+Runs automatically every 12 hours via cron:
+
+1. SSHs into the EC2
+2. Dumps MongoDB with `mongodump`
+3. Compresses into a timestamped tarball
+4. Uploads to S3 via IAM role, no credentials stored anywhere
+
+Can also be triggered manually from the Actions tab.
 
 ## Run locally
 
@@ -38,11 +50,15 @@ Then hit `http://localhost:3000` and `http://localhost:3000/secret`
 | Variable | Description |
 |----------|-------------|
 | `SECRET_MESSAGE` | Message returned by the `/secret` route |
-| `USERNAME` | Basic Auth username |
-| `PASSWORD` | Basic Auth password |trigger
- 
- 
- 
- 
- 
- 
+| `APP_USERNAME` | Basic Auth username |
+| `APP_PASSWORD` | Basic Auth password |
+
+## GitHub Secrets required
+
+| Secret | Description |
+|--------|-------------|
+| `EC2_HOST` | EC2 public IP |
+| `EC2_SSH_KEY` | Contents of `.pem` key file |
+| `SECRET_MESSAGE` | App secret message |
+| `APP_USERNAME` | Basic Auth username |
+| `APP_PASSWORD` | Basic Auth password |
