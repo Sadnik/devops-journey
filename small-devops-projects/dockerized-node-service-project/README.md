@@ -61,4 +61,4 @@ Then hit `http://localhost:3000` and `http://localhost:3000/secret`
 | `EC2_SSH_KEY` | Contents of `.pem` key file |
 | `SECRET_MESSAGE` | App secret message |
 | `APP_USERNAME` | Basic Auth username |
-| `APP_PASSWORD` | Basic Auth password |
+| `APP_PASSWORD` | Basic Auth password | 
