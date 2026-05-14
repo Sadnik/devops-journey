@@ -51,7 +51,7 @@ Node.js REST API with Basic Auth, containerized with Docker, automatically built
 
 `Docker` `Node.js` `Express` `MongoDB` `AWS EC2` `AWS S3` `IAM Roles` `GitHub Actions` `CI/CD` `Secrets Management` `Cron`
 
-[→ View project](https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/dockerized-node-service-project)
+[→ View project](https://github.com/Sadnik/devops-journey/tree/master/small-devops-projects/nodejs-docker-cicd-backup)
 
 ---
 
@@ -62,7 +62,7 @@ Node.js REST API with Basic Auth, containerized with Docker, automatically built
 | [linux/](linux/) | Bash scripting, fundamentals, 1+ month of daily exercises |
 | [docker/](docker/) | Basics, networking, multi-container labs, Compose assignments |
 | [aws-project/](aws-project/) | Docker + ECR + EC2 + Ansible end-to-end project |
-| [small-devops-projects/](small-devops-projects/) | Standalone projects|
+| [small-devops-projects/](small-devops-projects/) | Standalone projects |
 
 ---
 
@@ -78,6 +78,7 @@ Node.js REST API with Basic Auth, containerized with Docker, automatically built
 🔄 AWS Cloud Practitioner (CLF-C02)
 ⏳ Kubernetes — Absolute Beginners + CKA
 ⏳ AWS Solutions Architect Associate (SAA-C03)
+⏳ AWS DevOps Engineer Professional
 ⏳ Terraform & Infrastructure as Code
 ⏳ Production Monitoring Stack (Prometheus · Grafana · Alertmanager)
 ```
